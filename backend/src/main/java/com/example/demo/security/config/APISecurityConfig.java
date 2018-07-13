@@ -77,7 +77,8 @@ public class APISecurityConfig extends WebSecurityConfigurerAdapter {
         });
         httpSecurity.antMatcher("/**").csrf().disable().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().addFilter(filter).authorizeRequests()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
+        // authenticated();
     }
 
     public static List<String> getPrincipalRequestValues() {

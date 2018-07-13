@@ -1,0 +1,46 @@
+<template>
+	<div class="container">
+		<div class="card card-shadow">
+			<div class="card-body">
+				<div class="card card-shadow card-group">
+					<div class="card">
+						<div class="card-body">
+							<a route-href="route:invited-users">
+								<div class="row align-items-center">
+									<div class="col-6"> <i class="fas fa-lg fa-list-ul text-muted"></i> </div>
+									<div class="col-6 text-right h3-2x font-weight-normal text-info1"> ${userCountDetails.totalInvites} </div>
+								</div>
+								<p class="text-muted mb-1">${'dashboard.total_invites' | t}</p>
+								<div class="progress">
+									<div class="progress-bar bg-info1" role="progressbar" style="width: ${acceptedInviteePercentage}%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<div class="row mt-2 text-muted">
+									<div class="col-6"> ${'dashboard.invites_accepted' | t}<span class="h4">${userCountDetails.invitesAccepted}</span> </div>
+									<div class="col-6 text-right"> ${'dashboard.invites_pending' | t}<span class="h4">${userCountDetails.invitesPending}</span> </div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="card card-borderm">
+						<div class="card-body">
+							<a route-href="route:referred-users">
+								<div class="row align-items-center">
+									<div class="col-6"> <i class="fas fa-lg fa-user text-muted"></i> </div>
+									<div class="col-6 text-right h3-2x font-weight-normal text-info2"> ${referrals.totalReferrals} </div>
+								</div>
+								<p class="text-muted mb-1">${'dashboard.total_referrals' | t}</p>
+								<div class="progress">
+									<div class="progress-bar bg-info2" role="progressbar" style="width: ${referrals.acceptedReferralPercentage}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> </div>
+								</div>
+								<div class="row mt-2 text-muted">
+									<div class="col-6"> ${'dashboard.invites_accepted' | t}<span class="h4">${referrals.acceptedReferrals}</span> </div>
+									<div class="col-6 text-right"> ${'dashboard.invites_pending' | t}<span class="h4">${referrals.pendingReferrals}</span> </div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

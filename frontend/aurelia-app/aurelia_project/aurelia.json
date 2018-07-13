@@ -1,0 +1,339 @@
+{
+  "name": "aurelia-app",
+  "type": "project:application",
+  "bundler": {
+    "id": "cli",
+    "displayName": "Aurelia-CLI"
+  },
+  "build": {
+    "targets": [
+      {
+        "id": "web",
+        "displayName": "Web",
+        "index": "index.html",
+        "baseDir": ".",
+        "output": "scripts"
+      }
+    ],
+    "options": {
+      "minify": "stage & prod",
+      "sourcemaps": "dev & stage",
+      "rev": "stage & prod"
+    },
+    "bundles": [
+      {
+        "name": "app-bundle.js",
+        "source": [
+          "[**/*.js]",
+          "**/*.{css,html,json}"
+        ]
+      },
+      {
+        "name": "vendor-bundle.js",
+        "prepend": [
+          "node_modules/bluebird/js/browser/bluebird.min.js",
+          {
+            "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
+            "env": "stage & prod"
+          },
+          {
+            "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
+            "env": "dev"
+          },
+          "node_modules/babel-polyfill/dist/polyfill.min.js",
+          "node_modules/requirejs/require.js"
+        ],
+        "dependencies": [
+          "aurelia-binding",
+          "aurelia-bootstrapper",
+          "aurelia-dependency-injection",
+          "aurelia-event-aggregator",
+          "aurelia-framework",
+          "aurelia-history",
+          "aurelia-history-browser",
+          "aurelia-loader",
+          "aurelia-loader-default",
+          "aurelia-logging",
+          "aurelia-logging-console",
+          "aurelia-metadata",
+          "aurelia-pal",
+          "aurelia-pal-browser",
+          "aurelia-path",
+          "aurelia-polyfills",
+          "aurelia-route-recognizer",
+          "aurelia-router",
+          "aurelia-task-queue",
+          "aurelia-templating",
+          "aurelia-templating-binding",
+          "aurelia-fetch-client",
+          "aurelia-http-client",
+          "jquery",
+          {
+            "name": "aurelia-templating-resources",
+            "path": "../node_modules/aurelia-templating-resources/dist/amd",
+            "main": "aurelia-templating-resources"
+          },
+          {
+            "name": "aurelia-templating-router",
+            "path": "../node_modules/aurelia-templating-router/dist/amd",
+            "main": "aurelia-templating-router"
+          },
+          {
+            "name": "aurelia-testing",
+            "path": "../node_modules/aurelia-testing/dist/amd",
+            "main": "aurelia-testing",
+            "env": "dev"
+          },
+          {
+            "name": "bootstrap",
+            "path": "../node_modules/bootstrap/dist",
+            "main": "js/bootstrap.min",
+            "deps": [
+              "jquery"
+            ],
+            "exports": "$",
+            "resources": [
+              "css/bootstrap.css"
+            ]
+          },
+          {
+            "name": "popper.js",
+            "path": "../node_modules/popper.js/dist/umd",
+            "main": "popper.min"
+          },
+          {
+            "name": "aurelia-fetch-client",
+            "path": "../node_modules/aurelia-fetch-client/dist/amd",
+            "main": "aurelia-fetch-client"
+          },
+          {
+            "name": "aurelia-http-client",
+            "path": "../node_modules/aurelia-http-client/dist/amd",
+            "main": "aurelia-http-client"
+          },
+          {
+            "name": "i18next",
+            "path": "../node_modules/i18next/dist/umd",
+            "main": "i18next"
+          },
+          {
+            "name": "aurelia-i18n",
+            "path": "../node_modules/aurelia-i18n/dist/amd",
+            "main": "aurelia-i18n"
+          },
+          {
+            "name": "i18next-xhr-backend",
+            "path": "../node_modules/i18next-xhr-backend/dist/umd",
+            "main": "i18nextXHRBackend"
+          },
+          {
+            "name": "aurelia-table",
+            "path": "../node_modules/au-table/dist/amd",
+            "main": "index",
+            "resources": [
+              "au-table-pagination.html"
+            ]
+          },
+          {
+            "name": "bootstrap-datepicker",
+            "path": "../node_modules/bootstrap-datepicker/dist",
+            "main": "js/bootstrap-datepicker.min"
+          },
+          {
+            "name": "aurelia-api",
+            "path": "../node_modules/aurelia-api/dist/amd",
+            "main": "aurelia-api"
+          },
+          {
+            "name": "aurelia-view-manager",
+            "path": "../node_modules/aurelia-view-manager/dist/amd",
+            "main": "aurelia-view-manager"
+          },
+          "text",
+          "extend",
+          {
+            "name": "bootstrap-tagsinput",
+            "path": "../node_modules/bootstrap-tagsinput",
+            "main": "dist/bootstrap-tagsinput.min",
+            "resources": [
+              "dist/bootstrap-tagsinput.css"
+            ]
+          },
+          {
+            "name": "aurelia-bootstrap-tagsinput",
+            "path": "../node_modules/aurelia-bootstrap-tagsinput/dist/amd",
+            "main": "index",
+            "resources": [
+              "**/*.{css,html}"
+            ]
+          },
+          {
+            "name": "quill",
+            "path": "../node_modules/quill/dist",
+            "main": "quill",
+            "resources": [
+              "quill.snow.css"
+            ]
+          },
+          {
+            "name": "aurelia-quill-plugin",
+            "path": "../node_modules/aurelia-quill-plugin/dist/amd",
+            "main": "index"
+          },
+          {
+            "name": "jquery-ui",
+            "main": "ui/widgets/autocomplete.js",
+            "path": "../node_modules/jquery-ui"
+          },
+          {
+            "name": "aurelia-validation",
+            "main": "aurelia-validation",
+            "path": "../node_modules/aurelia-validation/dist/amd",
+            "resources": []
+          },
+          {
+            "name": "aurelia-cookie",
+            "path": "../node_modules/aurelia-cookie/dist/amd",
+            "main": "index"
+          },
+          {
+            "name": "moment",
+            "path": "../node_modules/moment",
+            "main": "moment"
+          },
+          {
+            "name": "aurelia-google-analytics",
+            "main": "index",
+            "path": "../node_modules/aurelia-google-analytics/dist/amd",
+            "resources": []
+          },
+          {
+            "name": "aurelia-configuration",
+            "main": "index",
+            "path": "../node_modules/aurelia-configuration/dist/amd",
+            "resources": []
+          },
+          "cloudinary-core",
+          {
+            "name": "lodash",
+            "main": "lodash",
+            "path": "../node_modules/lodash/"
+          },
+          {
+            "name": "devbridge-autocomplete",
+            "main": "jquery.autocomplete.min",
+            "path": "../node_modules/devbridge-autocomplete/dist"
+          },
+          {
+            "name": "aurelia-authentication",
+            "main": "aurelia-authentication",
+            "path": "../node_modules/aurelia-authentication/dist/amd",
+            "resources": []
+          },
+          {
+            "name": "jwt-decode",
+            "main": "lib/index.js",
+            "path": "../node_modules/jwt-decode",
+            "resources": []
+          },
+          {
+            "name": "toastr",
+            "main": "toastr",
+            "path": "../node_modules/toastr",
+            "resources": [
+              "build/toastr.css"
+            ]
+          },
+          {
+            "name": "blueimp-file-upload",
+            "main": "js/jquery.fileupload.js",
+            "path": "../node_modules/blueimp-file-upload"
+          },
+          "cloudinary-jquery-file-upload",
+          {
+            "name": "aurelia-plugins-google-recaptcha",
+            "main": "aurelia-plugins-google-recaptcha",
+            "path": "../node_modules/aurelia-plugins-google-recaptcha/dist/amd",
+            "resources": [
+                "aurelia-plugins-google-recaptcha-element.js"
+            ]
+          }
+        ]
+      }
+    ],
+    "loader": {
+      "type": "require",
+      "configTarget": "vendor-bundle.js",
+      "includeBundleMetadataInConfig": "auto",
+      "plugins": [
+        {
+          "name": "text",
+          "extensions": [
+            ".html",
+            ".css",
+            ".json"
+          ],
+          "stub": false
+        }
+      ]
+    }
+  },
+  "platform": {
+    "id": "web",
+    "displayName": "Web",
+    "index": "index.html",
+    "baseDir": ".",
+    "output": "scripts"
+  },
+  "transpiler": {
+    "id": "babel",
+    "displayName": "Babel",
+    "fileExtension": ".js",
+    "options": {
+      "plugins": [
+        "transform-es2015-modules-amd"
+      ]
+    },
+    "source": "src/**/*.js"
+  },
+  "markupProcessor": {
+    "id": "minimum",
+    "displayName": "Minimal Minification",
+    "fileExtension": ".html",
+    "source": "src/**/*.html"
+  },
+  "localesProcessor": {
+    "id": "none",
+    "displayName": "None",
+    "fileExtension": ".json",
+    "source": "src/locales/**/*.json"
+  },
+  "cssProcessor": {
+    "id": "none",
+    "displayName": "None",
+    "fileExtension": ".css",
+    "source": "src/**/*.css"
+  },
+  "editor": {
+    "id": "vscode",
+    "displayName": "Visual Studio Code"
+  },
+  "unitTestRunner": {
+    "id": "karma",
+    "displayName": "Karma",
+    "source": "test/unit/**/*.js"
+  },
+  "paths": {
+    "root": "src",
+    "resources": "resources",
+    "elements": "resources/elements",
+    "attributes": "resources/attributes",
+    "valueConverters": "resources/value-converters",
+    "bindingBehaviors": "resources/binding-behaviors",
+    "baseUrl": "http://localhost:8080"
+  },
+  "testFramework": {
+    "id": "jasmine",
+    "displayName": "Jasmine"
+  }
+}
